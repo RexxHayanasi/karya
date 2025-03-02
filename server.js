@@ -5,6 +5,7 @@ const path = require("path");
 const authRoutes = require("./server/routes/authRoutes");
 const userRoutes = require("./server/routes/userRoutes");
 const karyaRoutes = require("./server/routes/karyaRoutes");
+const dashboardRoutes = require("./server/routes/dashboardRoutes"); // Tambahkan ini
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use(
 app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
 app.use("/karya", karyaRoutes);
+app.use("/dashboard", dashboardRoutes); // Tambahkan ini
 
 app.get("/", (req, res) => {
     res.render("index");
