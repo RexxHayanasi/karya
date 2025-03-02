@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kreator | Karyavelian</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Karyavelian</h2>
+        <ul>
+            <li><a href="/dashboard">🏠 Dashboard</a></li>
+            <li><a href="/upload">📤 Unggah Karya</a></li>
+            <li><a href="/profile">👤 Profil</a></li>
+            <li><a href="/logout">🚪 Logout</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <header>
+            <h1>Selamat Datang, <%= user.username %> 👋</h1>
+        </header>
+        <section class="stats">
+            <div class="stat-box">
+                <h3>🖼️ Karya Unggahan</h3>
+                <p><%= karyaCount %> Karya</p>
+            </div>
+            <div class="stat-box">
+                <h3>💰 Donasi Diterima</h3>
+                <p>Rp <%= totalDonasi %></p>
+            </div>
+            <div class="stat-box">
+                <h3>👥 Pengikut</h3>
+                <p><%= followerCount %> Orang</p>
+            </div>
+        </section>
+
+        <section class="recent-uploads">
+            <h2>Karya Terbaru</h2>
+            <div class="gallery">
+                <% karya.forEach(item => { %>
+                    <div class="gallery-item">
+                        <img src="<%= item.imageUrl %>" alt="<%= item.title %>">
+                        <p><%= item.title %></p>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
