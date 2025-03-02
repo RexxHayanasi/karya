@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Kreator | Karyavelian</title>
+    <title>Dashboard - Karyavelian</title>
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
@@ -13,42 +14,41 @@
             <li><a href="/dashboard">🏠 Dashboard</a></li>
             <li><a href="/upload">📤 Unggah Karya</a></li>
             <li><a href="/profile">👤 Profil</a></li>
-            <li><a href="/logout">🚪 Logout</a></li>
+            <li><a href="/logout">🚪 Keluar</a></li>
         </ul>
     </div>
-    
+
     <div class="main-content">
         <header>
-            <h1>Selamat Datang, <%= user.username %> 👋</h1>
+            <h1>Selamat Datang, <%= user.username %>!</h1>
         </header>
+
         <section class="stats">
-            <div class="stat-box">
-                <h3>🖼️ Karya Unggahan</h3>
-                <p><%= karyaCount %> Karya</p>
-            </div>
-            <div class="stat-box">
-                <h3>💰 Donasi Diterima</h3>
-                <p>Rp <%= totalDonasi %></p>
-            </div>
-            <div class="stat-box">
-                <h3>👥 Pengikut</h3>
-                <p><%= followerCount %> Orang</p>
-            </div>
-        </section>
+    <div class="stat-box">
+        <h3>Total Karya</h3>
+        <p><%= karyaCount %></p>
+    </div>
+    <div class="stat-box">
+        <h3>Pengikut</h3>
+        <p><%= totalPengikut %></p>
+    </div>
+    <div class="stat-box">
+        <h3>Donasi</h3>
+        <p>Rp <%= totalDonasi.toLocaleString() %></p>
+    </div>
+</section>
 
         <section class="recent-uploads">
             <h2>Karya Terbaru</h2>
             <div class="gallery">
                 <% karya.forEach(item => { %>
                     <div class="gallery-item">
-                        <img src="<%= item.imageUrl %>" alt="<%= item.title %>">
+                        <img src="<%= item.image %>" alt="<%= item.title %>">
                         <p><%= item.title %></p>
                     </div>
                 <% }) %>
             </div>
         </section>
     </div>
-
-    <script src="/js/dashboard.js"></script>
 </body>
 </html>
