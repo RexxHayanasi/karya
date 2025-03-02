@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Karyavelian</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Profil Kreator</h2>
+        <div class="profile-info">
+            <img src="<%= user.profilePic %>" alt="Foto Profil">
+            <h3><%= user.name %></h3>
+            <p><%= user.email %></p>
+            <a href="https://saweria.co/<%= user.saweria %>" target="_blank" class="donate-btn">Dukung Saya</a>
+        </div>
+        <h3>Karya Saya</h3>
+        <div class="gallery">
+            <% user.karya.forEach(karya => { %>
+                <div class="gallery-item">
+                    <img src="<%= karya.imageUrl %>" alt="<%= karya.title %>">
+                    <p><%= karya.title %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
